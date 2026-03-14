@@ -12,9 +12,25 @@ def home():
 @app.post("/generate-recipes")
 def generate_recipes(request: IngredientRequest):
     #returns a message indicating that the recipe generation is in progress, along with the ingredients provided by the user
-    recipes = [ 
-        {"name": "Simple Omelette","ingredients":"ingredients",
-         "steps": ["Beat the eggs","Heat a pan",
-                    "cook until done"]}
-    ]
+    recipes = [
+    {
+        "name": "Simple Omelette",
+        "ingredients": ingredients,
+        "steps": [
+            "Beat the eggs",
+            "Heat a pan",
+            "Cook until done"
+        ]
+    },
+    {
+        "name": "Vegetable Stir Fry",
+        "ingredients": ingredients,
+        "steps": [
+            "Heat oil in pan",
+            "Add vegetables",
+            "Stir fry for 5 minutes"
+        ]
+    }
+]
+    
     return {"recipes": recipes}
