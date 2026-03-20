@@ -1,36 +1,19 @@
 from fastapi import FastAPI
 from models import IngredientRequest
-#creates aplication object
+from ai import generate_recipes
+
+# Create the FastAPI application
 app = FastAPI()
-#endpoint for home page, returns a message when accessed
+
+# Home endpoint to test if the server is running
 @app.get("/")
 def home():
-    #returns a message indicating that the save fridge is running in a JSON format
-    return {"message": "save fridge is running"}
+    return {"message": "SaveFridge AI is running"}
 
-
+# Endpoint to generate recipes
 @app.post("/generate-recipes")
-def generate_recipes(request: IngredientRequest):
-    #returns a message indicating that the recipe generation is in progress, along with the ingredients provided by the user
-    recipes = [
-    {
-        "name": "Simple Omelette",
-        "ingredients": ingredients,
-        "steps": [
-            "Beat the eggs",
-            "Heat a pan",
-            "Cook until done"
-        ]
-    },
-    {
-        "name": "Vegetable Stir Fry",
-        "ingredients": ingredients,
-        "steps": [
-            "Heat oil in pan",
-            "Add vegetables",
-            "Stir fry for 5 minutes"
-        ]
-    }
-]
+def generate_recipe_endpoint(request: IngredientRequest):
+
+    recipes = generate_recipes(request.ingredients)
     
-    return {"recipes": recipes}
+    return  recipes
