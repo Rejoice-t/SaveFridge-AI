@@ -211,7 +211,7 @@ async function generateRecipes() {
     generateBtn.textContent = "Generating...";
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/generate-recipes", {
+        const response = await fetch("https://savefridge-ai.onrender.com/generate-recipes", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
