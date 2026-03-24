@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SaveFridge AI</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
+    <main class="page">
+        <section class="hero">
+            <div class="badge">🍽️ AI Recipe Generator</div>
+
+            <h1>
+                Turn your leftovers into meals with AI
+                <span>delicious recipes</span>
+            </h1>
+
+            <p class="subtitle">
+                SaveFridge AI helps reduce food waste by turning what you already have
+                into simple meals you can make right now.
+            </p>
+
+            <div class="input-card">
+                <div class="chip-box" id="chipBox"></div>
+
+                <div class="input-row">
+                    <input
+                        type="text"
+                        id="ingredientInput"
+                        placeholder="Type an ingredient and press Enter"
+                    />
+                    <button id="addIngredientBtn" class="ghost-btn" type="button">Add</button>
+                </div>
+            </div>
+
+            <p class="quick-title">Quick add</p>
+            <div class="quick-add">
+                <button type="button" class="quick-chip">egg</button>
+                <button type="button" class="quick-chip">milk</button>
+                <button type="button" class="quick-chip">flour</button>
+                <button type="button" class="quick-chip">spinach</button>
+                <button type="button" class="quick-chip">tomato</button>
+                <button type="button" class="quick-chip">cheese</button>
+                <button type="button" class="quick-chip">onion</button>
+                <button type="button" class="quick-chip">bread</button>
+            </div>
+
+            <div class="cta-row">
+                <button id="generateBtn" class="generate-btn" type="button">
+                    ✨ Generate Recipes
+                </button>
+                <span class="ingredient-count" id="ingredientCount">0 ingredients selected</span>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <div class="results-header">
+                <h2>Your Recipes</h2>
+                <p id="statusText">Add ingredients and generate recipe ideas.</p>
+            </div>
+
+            <div id="results" class="results-grid"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
