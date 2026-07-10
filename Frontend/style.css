@@ -199,14 +199,14 @@ body {
 }
 
 .generate-btn {
-    background: linear-gradient(135deg, var(--green), #16b24c);
-    color: white;
+    background: linear-gradient(#ddafdd);
+    color: rgb(8, 8, 8);
     padding: 18px 30px;
     border-radius: 18px;
     font-weight: 800;
     font-size: 1.1rem;
     min-width: 280px;
-    box-shadow: 0 14px 28px rgba(31, 166, 75, 0.24);
+    box-shadow: 0 14px 28px rgba(161, 57, 167, 0.24);
 }
 
 .generate-btn:hover {

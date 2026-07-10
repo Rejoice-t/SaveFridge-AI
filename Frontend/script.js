@@ -171,9 +171,9 @@ function displayRecipes(recipes) {
                 <p class="recipe-desc">${makeDescription(recipe)}</p>
 
                 <div class="meta-row">
-                    <div class="meta-item">🕒 ${estimatePrepTime(recipe)}</div>
-                    <div class="meta-item">👩‍🍳 ${estimateCookTime(recipe)}</div>
-                    <div class="meta-item">🍽️ ${estimateServings(recipe)}</div>
+                    <div class="meta-item"> ${estimatePrepTime(recipe)}</div>
+                    <div class="meta-item"> ${estimateCookTime(recipe)}</div>
+                    <div class="meta-item"> ${estimateServings(recipe)}</div>
                 </div>
 
                 <div class="tag-row">${tags}</div>
@@ -237,7 +237,7 @@ async function generateRecipes() {
         statusText.textContent = "Could not generate recipes.";
     } finally {
         generateBtn.disabled = false;
-        generateBtn.textContent = "✨ Generate Recipes";
+        generateBtn.textContent = " Generate Recipes";
     }
 }
 
