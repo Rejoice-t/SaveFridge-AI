@@ -6,11 +6,18 @@
 // API configuration.
 // Keep this URL for local development.
 // Before deploying, change it to your Render backend URL.
-const LOCAL_API_URL = "http://127.0.0.1:8000";
+// Automatically use the local backend during development
+// and the Render backend when the application is deployed.
 
-const RECIPE_API_URL = `${LOCAL_API_URL}/generate-recipes`;
-const IMAGE_API_URL = `${LOCAL_API_URL}/recipe-image`;
-const INGREDIENT_SCAN_URL = `${LOCAL_API_URL}/identify-ingredients`;
+const API_BASE_URL =
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+        ? "http://127.0.0.1:8000"
+        : "https://savefridge-ai.onrender.com";
+
+const RECIPE_API_URL = `${API_BASE_URL}/generate-recipes`;
+const IMAGE_API_URL = `${API_BASE_URL}/recipe-image`;
+const INGREDIENT_SCAN_URL = `${API_BASE_URL}/identify-ingredients`;
 
 // Main page elements
 const ingredientInput = document.getElementById("ingredientInput");
