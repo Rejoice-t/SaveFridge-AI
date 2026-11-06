@@ -1,6 +1,8 @@
-from pydantic import BaseModel
-from typing import  List
+
+from pydantic import BaseModel, Field
+from typing import List
+
 
 class IngredientRequest(BaseModel):
-    #ingredients should be a list of strings, representing the ingredients provided by the user
     ingredients: List[str]
+    pantry_staples: List[str] = Field(default_factory=list)
