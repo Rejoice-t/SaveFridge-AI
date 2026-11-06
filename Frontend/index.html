@@ -1,73 +1,299 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SaveFridge AI</title>
+
+    <meta
+        name="description"
+        content="Discover AI-powered recipes using ingredients you already have. Cook creatively and reduce food waste with SaveFridge AI."
+    />
+
+    <meta name="theme-color" content="#FAF7F2" />
+
+    <title>SaveFridge AI | Cook Smart, Waste Less</title>
+
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- Lucide icons -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
+
 <body>
-    <div class="bg-orb orb-1"></div>
-    <div class="bg-orb orb-2"></div>
-    <div class="bg-orb orb-3"></div>
+    <div class="background-decoration" aria-hidden="true">
+        <div class="bg-orb orb-1"></div>
+        <div class="bg-orb orb-2"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <a class="brand" href="#" aria-label="SaveFridge AI home">
+            <span class="brand-icon">
+                <i data-lucide="leaf" aria-hidden="true"></i>
+            </span>
+
+            <span class="brand-name">
+                SaveFridge <span>AI</span>
+            </span>
+        </a>
+
+        <div class="header-tagline">
+            <span class="header-status-dot"></span>
+            <span>Smarter cooking, less waste</span>
+        </div>
+    </header>
 
     <main class="page">
+
+        <!-- Hero -->
         <section class="hero">
-            <div class="badge">AI Recipe Generator</div>
+            <div class="hero-content">
+                <div class="eyebrow">
+                    <i data-lucide="sparkles" aria-hidden="true"></i>
+                    <span>YOUR PERSONAL AI SOUS-CHEF</span>
+                </div>
 
-            <h1>
-                Turn your leftovers into meals with AI
-                <span>delicious recipes</span>
-            </h1>
+                <h1>
+                    Good food starts<br />
+                    with <span>what you have.</span>
+                </h1>
 
-            <p class="subtitle">
-                SaveFridge AI helps reduce food waste by turning what you already have
-                into simple meals you can make right now.
-            </p>
+                <p class="subtitle">
+                    Discover delicious meals from ingredients already in
+                    your kitchen. Get inspired, cook creatively, and make
+                    every ingredient count.
+                </p>
 
-            <div class="input-card">
-                <div class="chip-box" id="chipBox"></div>
+                <div class="hero-highlights">
+                    <span>
+                        <i data-lucide="chef-hat" aria-hidden="true"></i>
+                        AI-powered recipes
+                    </span>
 
-                <div class="input-row">
-                    <input
-                        type="text"
-                        id="ingredientInput"
-                        placeholder="Type an ingredient and press Enter"
-                    />
-                    <button id="addIngredientBtn" class="ghost-btn" type="button">Add</button>
+                    <span>
+                        <i data-lucide="recycle" aria-hidden="true"></i>
+                        Less food waste
+                    </span>
                 </div>
             </div>
 
-            <p class="quick-title">Quick add</p>
-            <div class="quick-add">
-                <button type="button" class="quick-chip">egg</button>
-                <button type="button" class="quick-chip">milk</button>
-                <button type="button" class="quick-chip">flour</button>
-                <button type="button" class="quick-chip">spinach</button>
-                <button type="button" class="quick-chip">tomato</button>
-                <button type="button" class="quick-chip">cheese</button>
-                <button type="button" class="quick-chip">onion</button>
-                <button type="button" class="quick-chip">bread</button>
-            </div>
+            <!-- Ingredient entry -->
+            <section
+                class="ingredient-panel"
+                aria-labelledby="ingredientHeading"
+            >
+                <div class="panel-heading">
+                    <div>
+                        <span class="section-kicker">LET'S GET COOKING</span>
+                        <h2 id="ingredientHeading">
+                            What's in your kitchen?
+                        </h2>
+                    </div>
 
-            <div class="cta-row">
-                <button id="generateBtn" class="generate-btn" type="button">
-                 Generate Recipes
-                </button>
-                <span class="ingredient-count" id="ingredientCount">0 ingredients selected</span>
-            </div>
+                    <span class="panel-heading-icon" aria-hidden="true">
+                        <i data-lucide="cooking-pot"></i>
+                    </span>
+                </div>
+
+                <p class="panel-description">
+                    Add what you have available. We'll help you discover
+                    what you can make.
+                </p>
+
+                <div
+                    class="chip-box"
+                    id="chipBox"
+                    aria-label="Selected ingredients"
+                    aria-live="polite"
+                ></div>
+
+                <form id="ingredientForm" class="input-row">
+                    <label class="visually-hidden" for="ingredientInput">
+                        Enter an ingredient
+                    </label>
+
+                    <i
+                        class="input-icon"
+                        data-lucide="plus"
+                        aria-hidden="true"
+                    ></i>
+
+                    <input
+                        type="text"
+                        id="ingredientInput"
+                        placeholder="Try tomatoes, spinach, or rice..."
+                        autocomplete="off"
+                    />
+
+                    <button
+                        id="addIngredientBtn"
+                        class="ghost-btn"
+                        type="submit"
+                    >
+                        Add ingredient
+                    </button>
+                </form>
+
+                <!-- Quick add -->
+                <div class="quick-add-section">
+                    <p class="quick-title">QUICK ADD</p>
+
+                    <div class="quick-add" aria-label="Quick add ingredients">
+                        <button type="button" class="quick-chip">Egg</button>
+                        <button type="button" class="quick-chip">Milk</button>
+                        <button type="button" class="quick-chip">Flour</button>
+                        <button type="button" class="quick-chip">Spinach</button>
+                        <button type="button" class="quick-chip">Tomato</button>
+                        <button type="button" class="quick-chip">Cheese</button>
+                        <button type="button" class="quick-chip">Onion</button>
+                        <button type="button" class="quick-chip">Bread</button>
+                    </div>
+                </div>
+
+                <!-- Optional photo upload interface -->
+                <div class="photo-upload-section">
+                    <div class="upload-divider">
+                        <span>OR</span>
+                    </div>
+
+                    <label class="photo-upload-card" for="ingredientPhoto">
+                        <span class="upload-icon">
+                            <i data-lucide="camera" aria-hidden="true"></i>
+                        </span>
+
+                        <span class="upload-copy">
+                            <strong>Scan your ingredients</strong>
+                            <small>
+                                Choose a food photo for AI identification
+                            </small>
+                        </span>
+
+                        <i
+                            data-lucide="upload"
+                            class="upload-action-icon"
+                            aria-hidden="true"
+                        ></i>
+                    </label>
+
+                    <input
+                        type="file"
+                        id="ingredientPhoto"
+                        accept="image/jpeg,image/png,image/webp"
+                        capture="environment"
+                        hidden
+                    />
+
+                    <div
+                        id="photoPreview"
+                        class="photo-preview"
+                        hidden
+                    ></div>
+
+                    <div
+                        id="detectedIngredients"
+                        class="detected-ingredients"
+                        hidden
+                    ></div>
+                </div>
+
+                <div class="panel-divider"></div>
+
+                <!-- Generate recipes -->
+                <div class="cta-row">
+                    <button
+                        id="generateBtn"
+                        class="generate-btn"
+                        type="button"
+                    >
+                        <span>Find my recipes</span>
+                        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </button>
+
+                    <span
+                        class="ingredient-count"
+                        id="ingredientCount"
+                    >
+                        0 ingredients selected
+                    </span>
+                </div>
+
+                <p class="privacy-note">
+                    <i data-lucide="leaf" aria-hidden="true"></i>
+                    <span>Cook with what you have. Waste a little less.</span>
+                </p>
+            </section>
         </section>
 
-        <section class="results-section">
+        <!-- Recipe results -->
+        <section
+            class="results-section"
+            aria-labelledby="resultsHeading"
+        >
             <div class="results-header">
-                <h2>Your Recipes</h2>
-                <p id="statusText">Add ingredients and generate recipe ideas.</p>
+                <div>
+                    <span class="section-kicker">MADE FOR YOUR KITCHEN</span>
+
+                    <h2 id="resultsHeading">
+                        Your next favourite meal.
+                    </h2>
+
+                    <p id="statusText" aria-live="polite">
+                        Add your ingredients to discover recipes made for you.
+                    </p>
+                </div>
+
+                <span class="results-header-icon" aria-hidden="true">
+                    <i data-lucide="utensils" aria-hidden="true"></i>
+                </span>
             </div>
 
             <div id="results" class="results-grid"></div>
+
+            <div class="bottom-note">
+                <span class="bottom-note-icon">
+                    <i data-lucide="recycle" aria-hidden="true"></i>
+                </span>
+
+                <p>
+                    <strong>Make every ingredient count.</strong>
+                    <span>
+                        Small changes in the kitchen can help reduce food waste.
+                    </span>
+                </p>
+            </div>
         </section>
     </main>
 
+    <!-- Footer -->
+    <footer class="site-footer">
+        <a class="footer-brand" href="#">SaveFridge AI</a>
+
+        <p>Cook smart. Waste less. Enjoy more.</p>
+
+        <a href="#ingredientHeading" class="back-to-top">
+            Back to kitchen
+            <i data-lucide="arrow-up" aria-hidden="true"></i>
+        </a>
+    </footer>
+
     <script src="script.js"></script>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+        });
+    </script>
 </body>
 </html>
